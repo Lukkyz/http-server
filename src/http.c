@@ -150,7 +150,13 @@ void parse_request(uv_stream_t *client, const uv_buf_t *buf) {
   // Find cb
   KeyVal *finded = find(routes, req->path);
   Response *new_res = malloc(sizeof(Response));
-  (*finded->func)(*req, new_res);
+
+  if (finded == NULL) {
+    new_res->content = "pages/404.html";
+    new_res->code = 404;
+  } else {
+    (*finded->func)(*req, new_res);
+  }
   send_response(new_res, client);
 }
 

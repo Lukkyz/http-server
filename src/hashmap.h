@@ -13,7 +13,7 @@ typedef struct KeyVal {
 } KeyVal;
 
 typedef struct HashMap {
-  KeyVal keyvals[100];
+  KeyVal *keyvals[100];
 } HashMap;
 
 void insert(HashMap *hm, char *key, char *str);

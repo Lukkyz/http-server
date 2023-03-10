@@ -18,7 +18,7 @@ void insert_func(HashMap *hm, char *key,
   KeyVal *kv = malloc(sizeof(KeyVal));
   kv->key = key;
   kv->func = ptr;
-  hm->keyvals[index] = *kv;
+  hm->keyvals[index] = kv;
 }
 
 void insert(HashMap *hm, char *key, char *str) {
@@ -26,10 +26,16 @@ void insert(HashMap *hm, char *key, char *str) {
   KeyVal *kv = malloc(sizeof(KeyVal));
   kv->key = key;
   kv->val = str;
-  hm->keyvals[index] = *kv;
+  hm->keyvals[index] = kv;
 }
 
 KeyVal *find(HashMap *hm, char *key) {
   int index = hash(key, 100);
-  return &hm->keyvals[index];
+  KeyVal *kv = hm->keyvals[index];
+  if (kv != NULL) {
+    return hm->keyvals[index];
+  } else {
+    printf("NULLL\n");
+    return NULL;
+  }
 }
