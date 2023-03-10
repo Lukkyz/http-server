@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define isCompatible(x, type) _Generic(x, type : true, default : false)
-
 int hash(char *key, int size) {
   int total = 0;
   for (int i = 0; i < strlen(key); i++) {
