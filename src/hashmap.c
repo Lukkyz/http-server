@@ -35,7 +35,6 @@ KeyVal *find(HashMap *hm, char *key) {
   if (kv != NULL) {
     return hm->keyvals[index];
   } else {
-    printf("NULLL\n");
     return NULL;
   }
 }

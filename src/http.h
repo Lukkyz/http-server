@@ -15,6 +15,7 @@ typedef struct Request {
 typedef struct Response {
   uint16_t code;
   char *content;
+  char *content_type;
 } Response;
 
 void init_routes();
